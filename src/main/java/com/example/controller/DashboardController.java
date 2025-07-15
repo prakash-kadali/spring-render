@@ -73,6 +73,11 @@ public class DashboardController {
     private static final double OFFICE_LONGITUDE = 78.3942691;
     private static final double ALLOWED_RADIUS_METERS = 100.0;
 
+    @GetMapping("/")
+public String redirectToLogin() {
+    return "redirect:/login";
+}
+
     @GetMapping("/login")
     public String showLoginForm(@RequestParam(value = "sessionExpired", required = false) String sessionExpired, Model model) {
         if (sessionExpired != null && sessionExpired.equals("true")) {
