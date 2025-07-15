@@ -1,0 +1,7 @@
+services:
+  - name: company-dashboard
+    type: web
+    branch: main
+    buildCommand: "./mvnw clean package"
+    startCommand: "java -jar target/CompanyDashBoard-0.0.1-SNAPSHOT.jar"
+    plan: free
