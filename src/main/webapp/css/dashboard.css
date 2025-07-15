@@ -1,0 +1,488 @@
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light background for the whole page */
+        }
+
+        .sidebar {
+            width: 220px;
+            position: fixed;
+            height: 100%;
+            background-color: #222;
+            color: white;
+            padding-top: 20px;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+        .sidebar a {
+            display: block;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+            color: #ffc107; /* Highlight color on hover */
+        }
+        
+        /* Active sidebar link */
+        .sidebar a.active-link {
+            background-color: #0d6efd; /* Bootstrap primary blue */
+            color: white;
+            font-weight: bold;
+        }
+
+        .main-content {
+            margin-left: 220px; /* Offset for the sidebar */
+            padding: 30px;
+            min-height: calc(100vh - 70px); /* Ensure content pushes footer down */
+            padding-bottom: 70px; /* Space for the fixed footer */
+        }
+
+       .footer {
+            position: fixed;
+            bottom: 0;
+            left: 220px; /* Align with main-content */
+            width: calc(100% - 220px);
+            background-color: #e9ecef; /* Light gray */
+            padding: 10px;
+            font-size: 0.85rem;
+            color: #495057;
+            text-align: center;
+            border-top: 1px solid #dee2e6;
+            z-index: 999;
+            
+            /* New font styles */
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat, with sans-serif as fallback */
+            font-weight: 400; /* Regular weight, adjust if you want it bolder */
+            letter-spacing: 0.5px; /* Optional: Slightly increase letter spacing for better legibility */
+        }
+        /* New: Common banner for all pages */
+        .top-page-banner {
+            color: black;
+            text-align: center; /* Centered as per the original welcome content */
+            padding-bottom: 20px; /* Space below the banner */
+            border-bottom: 1px solid #e9ecef; /* Subtle line to separate from content */
+            margin-bottom: 30px; /* Space from the content below */
+            /* No background image for the common banner */
+        }
+
+        .top-page-banner h1 {
+            font-size: 3.5rem; /* Same font size as original welcome content */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Same text shadow as original */
+            margin-bottom: 15px; /* Same margin as original */
+            font-family: 'Segoe UI', sans-serif; /* Same font family as original */
+            color: black; /* Text color as per original image */
+        }
+
+        .top-page-banner p {
+            font-size: 1.5rem; /* Same font size as original welcome content */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Same text shadow as original */
+            font-family: 'Segoe UI', sans-serif; /* Same font family as original */
+            color: black; /* Text color as per original image */
+        }
+        /* End New: Common banner */
+
+        /* General table styling (Bootstrap tables handle most, but add subtle improvements) */
+        .table-responsive table { /* Target table inside responsive div */
+            border-radius: 0.75rem; /* Match card-like appearance */
+            overflow: hidden; /* Ensures border-radius applies to corners */
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05); /* Subtle shadow */
+            margin-bottom: 1rem; /* Space below tables */
+        }
+        
+        .table-responsive .table thead th {
+            background-color: #007bff; /* Primary blue for table headers */
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Styling for sortable headers */
+        .table-responsive .table thead th a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%; /* Make the whole header cell clickable */
+            color: white; /* Ensure links in headers are white */
+            text-decoration: none;
+        }
+        .table-responsive .table thead th a:hover {
+            color: #ffc107; /* Highlight color on hover for sort links */
+        }
+
+        .table-responsive .table thead th a .fas {
+            margin-left: 5px; /* Space between text and icon */
+        }
+
+        /* Message style */
+        .message {
+            color: green;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        /* General button styling for add buttons */
+        .add-button-container {
+            text-align: center;
+            margin-top: 20px; /* Space above for repositioned buttons */
+            margin-bottom: 20px;
+        }
+        .add-button-container .btn {
+            min-width: 180px;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+        }
+        /* Style for pagination links */
+        .pagination-container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px; /* Space from add button */
+        }
+        .pagination-container a {
+            margin: 0 8px;
+            padding: 8px 15px;
+            border: 1px solid #0d6efd;
+            border-radius: 0.25rem;
+            color: #0d6efd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .pagination-container a:hover {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .pagination-container a.font-weight-bold {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        /* Ensure form controls within tables are styled correctly */
+        table .form-control, table .form-select {
+            width: auto; /* Allow auto width for small inputs */
+            display: inline-block; /* Prevent full width for numbers/selects */
+            padding: .375rem .75rem; /* Bootstrap default padding */
+            font-size: 1rem; /* Bootstrap default font size */
+        }
+
+        /* New: Styles for the table controls row */
+        .table-controls-row {
+            margin-bottom: 20px; /* Space below the controls row */
+        }
+        .table-controls-row .records-per-page-container {
+            flex-shrink: 0; /* Prevent it from shrinking too much */
+            /* margin-right: 15px; Removed as search is no longer here */
+        }
+        .table-controls-row .dropdown {
+            flex-shrink: 0;
+            margin-left: auto; /* Push dropdown to the right */
+        }
+
+        /* Styles for the new search bar container */
+        .search-bar-container {
+            margin-bottom: 20px; /* Space below the search bar */
+        }
+        .search-bar-container .form-control {
+            max-width: 350px; /* Set desired width for the centered search bar */
+        }
+
+        /* Responsive adjustments for controls row */
+        @media (max-width: 767.98px) {
+            .table-controls-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            .table-controls-row .records-per-page-container,
+            .table-controls-row .dropdown {
+                margin-right: 0 !important; /* Override inline margins */
+                margin-bottom: 10px; /* Space out items vertically */
+                width: 100%; /* Full width on small screens */
+                max-width: 300px; /* Keep consistent max-width */
+            }
+            .search-bar-container .form-control {
+                 width: 100%; /* Full width on small screens */
+                 max-width: 350px; /* Keep consistent max-width */
+            }
+        }
+.badge-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 40px; /* Space below badges */
+        margin-top: 20px;
+    }
+
+    .badge-item {
+        background-color: #f0f8ff; /* Light bluish background */
+        border: 1px solid #dcdcdc;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 15px;
+        text-align: center;
+        flex: 1;
+        min-width: 250px;
+        max-width: 300px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    .badge-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .badge-item a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .badge-item i {
+        font-size: 3rem;
+        color: #007bff; /* Primary blue for icons */
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .badge-item .badge {
+        font-size: 1.5rem;
+        padding: 8px 12px;
+        border-radius: 5px;
+        margin-top: 10px;
+        display: inline-block; /* For better spacing */
+    }
+
+    /* Calendar Styles */
+    .calendar-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 25px;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        background-color: #fff;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .calendar-header h3 {
+        margin: 0;
+        font-size: 2rem;
+        color: #007bff;
+    }
+
+    .calendar-header button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .calendar-header button:hover {
+        background-color: #0056b3;
+    }
+
+    .calendar-days {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 10px;
+        text-align: center;
+    }
+
+    .calendar-day {
+        padding: 15px 5px;
+        border: 1px solid #f0f0f0;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        background-color: #fcfcfc;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        cursor: default; /* Default cursor for days */
+    }
+
+    .calendar-day.day-name {
+        background-color: #e9ecef;
+        font-weight: bold;
+        color: #495057;
+        border-color: #dee2e6;
+        padding: 12px 5px; /* Slightly less padding for day names */
+    }
+
+    .calendar-day.today {
+        background-color: #ffe0b2; /* Light orange for today */
+        border-color: #ffc107;
+        font-weight: bold;
+        color: #e65100;
+    }
+
+    .calendar-day.holiday {
+        background-color: #fdd8d8; /* Light red for holidays */
+        border-color: #dc3545;
+        color: #dc3545; /* Red text for holidays */
+        font-weight: bold;
+    }
+
+    /* Tooltip styles for hover */
+    .calendar-day[title]:hover {
+        transform: translateY(-2px); /* Slight lift on hover */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        cursor: help; /* Indicate hoverable content */
+    }
+
+    .holiday-form {
+        margin-top: 30px;
+        padding-top: 25px;
+        border-top: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .holiday-form form {
+        width: 100%;
+        max-width: 400px; /* Limit form width */
+    }
+
+    .holiday-form .btn {
+        margin-top: 15px;
+        padding: 10px 30px;
+        font-size: 1.1rem;
+    }
+
+    #holidayMessage {
+        font-size: 1rem;
+        margin-top: 10px;
+        text-align: center;
+    }
+.calendar-day.holiday {
+    background-color: #fdd8d8; /* Light red for holidays */
+    border-color: #dc3545;
+    color: #dc3545; /* Red text for holidays */
+    font-weight: bold;
+}
+/* Announcement Scroller Styles */
+      
+   @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ✅ Announcement Container */
+.announcement-container {
+    display: flex;
+    align-items: flex-start;
+    background-color: #99dfbf;  /* Softer pale red */
+    border: 1px solid #dcdcdc;  /* Light red border */
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 700px;
+    color: #000000; /* Dark red for text */
+    overflow: hidden;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+/* ✅ Title with flicker */
+.announcement-title {
+    font-weight: bold;
+    color: #000000;
+    margin-right: 15px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    animation: flicker 1s infinite;
+    font-size: 17px;
+}
+
+/* ✅ Scroller */
+.announcement-scroller {
+    flex-grow: 1;
+    max-height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ✅ Vertical scroll */
+.scrolling-vertical {
+    display: flex;
+    flex-direction: column;
+    animation: scrollUp 10s linear infinite;
+}
+
+.announcement-scroller:hover .scrolling-vertical {
+    animation-play-state: paused;
+}
+
+/* ✅ Announcement lines */
+.announcement-item-line {
+    padding: 6px 10px;
+    white-space: nowrap;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* ✅ Scroll Animation */
+@keyframes scrollUp {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+   
+
+        /* Announcement List (Non-Table) Styles */
+        .announcement-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive columns */
+            gap: 20px; /* Space between cards */
+        }
+        .announcement-item .card-body {
+            padding: 1rem;
+        }
+        .announcement-item .card-title {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+        .announcement-item .card-text {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .announcement-item .btn-sm {
+            padding: 0.25rem 0.6rem;
+            font-size: 0.85rem;
+        }
+        .announcement-item .d-flex {
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            gap: 8px; /* Space between badge and buttons */
+        }
+        .announcement-item .d-flex > div:last-child {
+            margin-left: auto; /* Push action buttons to the right */
+        }
+        .form-inline label {
+            margin-right: 0.5rem;
+        }
+        .form-inline select.form-control {
+            width: auto;
+            display: inline-block;
+        }
