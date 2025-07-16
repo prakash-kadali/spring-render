@@ -1,0 +1,18 @@
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>Company Dashboard</display-name>
+    <filter>
+    <filter-name>errorPageFilter</filter-name>
+    <filter-class>org.springframework.boot.web.servlet.support.ErrorPageFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>errorPageFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+</web-app>
