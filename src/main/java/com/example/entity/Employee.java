@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne; // ADD THIS IMPORT
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -26,10 +27,12 @@ public class Employee {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "dept_id", nullable = false)
+    @ToString.Exclude
     private Department dept;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "desig_id", nullable = false)
+    @ToString.Exclude
     private Designation desig;
     private String email;
     private Long phone;
@@ -50,6 +53,7 @@ public class Employee {
     // CascadeType.ALL is often useful if you want User operations to affect Employee.
     // optional = true allows an Employee to exist without a linked User account.
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, optional = true)
+    @ToString.Exclude
     private User user;
 
     // Lombok's @Data will handle getters and setters.

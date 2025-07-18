@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
+import lombok.ToString;
 @Data
 @Entity
 public class Designation {
@@ -22,5 +23,6 @@ public class Designation {
     private String dmail;
 
     @OneToMany(mappedBy = "desig")
+    @ToString.Exclude
     private List<Employee> employees;
 }

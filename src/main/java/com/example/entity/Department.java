@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -25,6 +26,7 @@ public class Department {
     private LocalDate createdDate;
     private String mail;
     @OneToMany(mappedBy = "dept")
+    @ToString.Exclude
     private List<Employee> employees;
 }
 

@@ -1096,7 +1096,7 @@
                     <td>${leave.reason}</td>
                     <td>${leave.status}</td>
                     <td>
-                        <c:if test="${leave.status == 'Pending'}">
+                        <c:if test="${leave.status == 'PENDING'}">
                             <form method="post" action="${pageContext.request.contextPath}/admin/handle-leave">
                                 <input type="hidden" name="requestId" value="${leave.id}" />
                                 <button name="action" value="approve" class="btn btn-success btn-sm">Approve</button>

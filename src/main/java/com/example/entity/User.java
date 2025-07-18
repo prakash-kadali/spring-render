@@ -9,6 +9,7 @@ import jakarta.persistence.JoinColumn; // ADD THIS IMPORT
 import jakarta.persistence.OneToOne; // ADD THIS IMPORT
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -27,6 +28,7 @@ public class User {
     // This is the owning side, meaning the 'users' table will have the foreign key.
     @OneToOne
     @JoinColumn(name = "employee_emp_id", referencedColumnName = "emp_id", unique = true)
+    @ToString.Exclude
     // 'unique = true' is important here because one User links to one Employee, and vice-versa.
     // Also, setting nullable to false would mean every user must be linked to an employee.
     // For now, let's keep it nullable if some users (like admin) won't have an employee link.

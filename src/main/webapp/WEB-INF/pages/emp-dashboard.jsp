@@ -749,7 +749,23 @@
                 <tr>
                     <td>${leave.startDate} to ${leave.endDate}</td>
                     <td>${leave.reason}</td>
-                    <td>${leave.status}</td>
+                   <td>
+    <c:choose>
+        <c:when test="${leave.status == 'PENDING'}">
+            <span class="badge bg-warning text-dark">Pending</span>
+        </c:when>
+        <c:when test="${leave.status == 'Accepted'}">
+            <span class="badge bg-success">Accepted</span>
+        </c:when>
+        <c:when test="${leave.status == 'Rejected'}">
+            <span class="badge bg-danger">Rejected</span>
+        </c:when>
+        <c:otherwise>
+            ${leave.status}
+        </c:otherwise>
+    </c:choose>
+</td>
+
                     <td>${leave.requestDate}</td>
                 </tr>
             </c:forEach>
